@@ -1,0 +1,14 @@
+Github
+저장소 repository
+
+포톤 서버 활용 서버 사용해서 미니게임 개발
+
+멀티 플레이 (2 ~ 4)
+네트워크가 돌아가는 게임
+
+Logo - Title - 로딩씬 - 미니Game씬 - End - 재시작창 - Title까지 Cycle 필요
+
+조건
+Git은 무조건 활용
+
+금요일까지
