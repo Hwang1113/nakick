@@ -5,7 +5,7 @@ public class TrashManager : MonoBehaviour
     public GameObject rangeObject;
     BoxCollider rangeCollider;
     public GameObject Item;
-    bool isGet 
+
 
 
     private void Start()
