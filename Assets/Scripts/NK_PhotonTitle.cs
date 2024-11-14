@@ -30,7 +30,7 @@ public class NK_PhotonTitle : MonoBehaviourPunCallbacks
         playButton.interactable = true;
     }
 
-    // Connect Button이 눌러지면 호출
+    // play Button이 눌러지면 호출
     public void Connect()
     {
         if (string.IsNullOrEmpty(nickName))
