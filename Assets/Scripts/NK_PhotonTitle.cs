@@ -86,7 +86,6 @@ public class NK_PhotonTitle : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined Room");
-        // 마스터가 동시에 게임을 시작하게하는 구조가 아니기 때문에 각자 씬을 부르면 됨
         //PhotonNetwork.LoadLevel("B.Lobby");
         SceneManager.LoadScene("B.Lobby");
     }
