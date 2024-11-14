@@ -36,6 +36,17 @@ public class TrashManager : MonoBehaviour
             TrashList.Add(hGo);
         }
 
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+
+            }
+        }
+        
     }
 }
