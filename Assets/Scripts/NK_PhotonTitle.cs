@@ -9,13 +9,18 @@ using Photon.Realtime;
 
 
 
+
 public class NK_PhotonTitle : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private string gameVersion = "0.0.1";
-    [SerializeField] private byte maxPlayerPerRoom = 4;
+    [SerializeField] 
+    private string gameVersion = "0.0.1";
+    [SerializeField] 
+    private byte maxPlayerPerRoom = 4;
 
-    [SerializeField] private string nickName = string.Empty;
-    [SerializeField] private Button playButton = null;
+    [SerializeField] 
+    private string nickName = string.Empty;
+    [SerializeField] 
+    private Button playButton = null;
 
 
     private void Awake()
