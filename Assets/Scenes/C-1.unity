@@ -958,7 +958,20 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< HEAD:Assets/Scenes/C-1.unity
   - {fileID: 1300089276}
   - {fileID: 170017934}
   - {fileID: 211203978}
   - {fileID: 1427450152}
+=======
+  - {fileID: 748154411}
+  - {fileID: 1561789592}
+  - {fileID: 165614959}
+  - {fileID: 1832766478}
+<<<<<<< HEAD:Assets/Scenes/C.GameRoom-1.unity
+  - {fileID: 305170310}
+=======
+  - {fileID: 1616256731}
+  - {fileID: 1775532931}
+>>>>>>> 3b69df04ec5e70ad328f04acc1d61f25862deb0e:Assets/Scenes/C.GameRoom.unity
+>>>>>>> 637e5e8a87d748184a121a56b790f3b3bdde013c:Assets/Scenes/C.GameRoom-1.unity
