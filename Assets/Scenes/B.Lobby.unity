@@ -208,8 +208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 306942468}
   - component: {fileID: 306942470}
-  - component: {fileID: 306942469}
   - component: {fileID: 306942471}
+  - component: {fileID: 306942469}
   m_Layer: 5
   m_Name: CountDown
   m_TagString: Untagged
@@ -347,8 +347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f890022b858c18845bc29b280e135daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TM_Pro: {fileID: 0}
   curCnt: 0
-  cnt: 
+  strCnt: 
 --- !u!1 &449468065
 GameObject:
   m_ObjectHideFlags: 0
