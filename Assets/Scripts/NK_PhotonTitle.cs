@@ -12,10 +12,9 @@ using Photon.Realtime;
 public class NK_PhotonTitle : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string gameVersion = "0.0.1";
-    [SerializeField] private byte maxPlyaerPerRoom = 4;
+    [SerializeField] private byte maxPlayerPerRoom = 4;
 
     [SerializeField] private string nickName = string.Empty;
-
     [SerializeField] private Button playButton = null;
 
 
@@ -81,7 +80,7 @@ public class NK_PhotonTitle : MonoBehaviourPunCallbacks
 
         // 방을 생성하면 OnJoinedRoom 호출
         Debug.Log("Create Room");
-        PhotonNetwork.CreateRoom(null, new RoomOptions{ MaxPlayers = maxPlyaerPerRoom });
+        PhotonNetwork.CreateRoom(null, new RoomOptions{ MaxPlayers = maxPlayerPerRoom });
     }
 
     public override void OnJoinedRoom()
@@ -99,7 +98,7 @@ public class NK_PhotonTitle : MonoBehaviourPunCallbacks
         playButton.interactable = true;
 
         Debug.Log("Create Room");
-        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlyaerPerRoom });
+        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayerPerRoom });
     }
 }
 
