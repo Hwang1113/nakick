@@ -15,12 +15,12 @@ public class NK_UI_Cntdwn : MonoBehaviour
             CountDown();
         }
     }
-    public void CountDown()
+    public void CountDown()//5초 카운트 다운하는 퍼블릭 함수 (정확히는 실수 6에서델타타임을 뺀 정수 )5부터 ~ 0 까지 
     {
         curCnt = maxCnt;
         StartCoroutine("Countdown5");
     }
-    IEnumerator Countdown5()//5초 카운트 다운하는 퍼블릭 함수
+    IEnumerator Countdown5() 
     {
         while (curCnt >=0)
         {
