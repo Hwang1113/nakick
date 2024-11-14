@@ -46,7 +46,7 @@ public class NK_UI_Cntdwn : MonoBehaviour
             yield return null;
         }
     }
-
+        
     public void CountStop() //일시정지만 카운트는 초기화 되지 않음
     {
         TM_Pro.enabled = false;
