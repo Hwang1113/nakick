@@ -1,34 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashManager : MonoBehaviour
 {
-    public GameObject rangeObject;
-    BoxCollider rangeCollider;
-    public GameObject Item;
+    [SerializeField]
+    private GameObject Trash = null;
+    [SerializeField]
+    private List<GameObject> TrashList = null;
 
 
+    private void Awake()
+    {
+        TrashList = new List<GameObject>();
+
+    }
 
     private void Start()
     {
-        GameObject istantItem = Instantiate(Item, Return_RandomPosition(), Quaternion.identity);
-    }
-    private void Awake()
-    {
-        rangeCollider = rangeObject.GetComponent<BoxCollider>();
-
+        CreateItem();
     }
 
-    Vector3 Return_RandomPosition()
+    private void CreateItem()
     {
-        Vector3 originPosition = rangeObject.transform.position;
-        float range_X = rangeCollider.bounds.size.x;
-        float range_Z = rangeCollider.bounds.size.z;
+        for (int i = 0; i <30; ++i)
+        {
+            Vector3 randomT = new Vector3(
+                Random.Range(-12, 12),
+                0.08f,
+                Random.Range(-12, 12)
+                );
 
-        range_X = Random.Range((range_X / 2) * -1, range_X / 2);
-        range_Z = Random.Range((range_Z / 2) * -1, range_Z / 2);
-        Vector3 RandomPosition = new Vector3(range_X, 0.5f, range_Z);
+            GameObject hGo = Instantiate(Trash, randomT, Quaternion.identity);
 
-        Vector3 respawnPosition = originPosition + RandomPosition;
-        return respawnPosition;
+            TrashList.Add(hGo);
+        }
+
+
     }
 }

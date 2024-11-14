@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/C.GameRoom.unity.meta
 guid: cb26d9824a7518d42b9b9cb64d95c940
+========
+guid: 57ad4bf8655a67a41b56f9d3a545a157
+>>>>>>>> choidah:Assets/Scenes/C-1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
