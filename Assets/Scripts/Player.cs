@@ -2,113 +2,28 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public string playerName = "Player";
+    public int score = 0;
 
-
-    //[SerializeField] private float speed = 7f;
-    //[SerializeField] private float rotateSpeed = 100f;
-    //private Animator anim;
-    //private float rx;
-    //private float ry;
-
-    //private void Awake()
-    //{
-    //    anim = GetComponent<Animator>();
-    //}
-
-    //private void Update()
-    //{
-    //    PlayerMove();
-    //    LookAround();
-    //}
-
-    //private void PlayerMove()
-    //{
-    //    float horizontal = Input.GetAxisRaw("Horizontal");
-    //    float vertical = Input.GetAxisRaw("Vertical");
-
-    //    Vector3 lookForward = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
-    //   Vector3 lookRight = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
-    //    Vector3 moveV = lookForward * vertical + lookRight * horizontal;
-
-    //    transform.forward = lookForward;
-    //    transform.position += moveV * Time.deltaTime * speed;
-
-    //    anim.SetBool("isRun", moveV != Vector3.zero);
-    //}
-
-    //private void LookAround()
-    //{
-    //    float mouseX = Input.GetAxis("Mouse X");
-    //    float mouseY = Input.GetAxis("Mouse Y");
-
-    //    rx += rotateSpeed * mouseY * Time.deltaTime;
-    //    ry += rotateSpeed * mouseX * Time.deltaTime;
-
-    //    rx = Mathf.Clamp(rx, -70f, 70f);
-
-    //    Camera.main.transform.eulerAngles = new Vector3(-rx, ry, 0f);
-    //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public float speed;
-    float hAxis;
-    float vAxis;
-    bool gDown;
-
-
-    Vector3 moveVec;
-    Animator anim;
-
-    private void Awake()
+    // 트리거 충돌이 발생했을 때 호출되는 함수
+    private void OnTriggerEnter(Collider other)
     {
-        anim = GetComponentInChildren<Animator>();
+        // 충돌한 오브젝트가 "Trash" 태그를 가졌는지 확인
+        if (other.CompareTag("Trash"))
+        {
+            // Trash 오브젝트에서 PlayerClick 메서드를 호출하여 클릭을 전달
+            NK_Trash trash = other.GetComponent<NK_Trash>();
+            if (trash != null)
+            {
+                trash.PlayerTouch(this); // Player가 클릭을 전달
+            }
+        }
     }
 
-    private void Update()
+    // 플레이어의 스코어 증가
+    public void AddScore(int amount)
     {
-        hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
-        gDown = Input.GetKeyDown(KeyCode.F);
-
-
-        //float h = Input.GetAxis("Horizontal");
-        //transform.Translate(Vector3.right * h * speed * Time.deltaTime);
-
-        //float v = Input.GetAxis("Vertical");
-        //transform.Translate(Vector3.forward * v * speed * Time.deltaTime);
-
-
-        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-
-        transform.position += moveVec * speed * Time.deltaTime;
-
-        anim.SetBool("isRun", moveVec != Vector3.zero);
-        anim.SetBool("isGet", gDown);
-
-
-        transform.LookAt(transform.position + moveVec);
-
+        score += amount;
+        Debug.Log($"{playerName} Score: {score}");
     }
 }

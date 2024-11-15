@@ -16,6 +16,8 @@ public class TrashManager : MonoBehaviour
 
     }
 
+
+
     private void Start()
     {
         CreateItem();
@@ -36,6 +38,6 @@ public class TrashManager : MonoBehaviour
             TrashList.Add(hGo);
         }
 
-
     }
+
 }
