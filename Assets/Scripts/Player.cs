@@ -1,9 +1,17 @@
 using UnityEngine;
+using Photon.Pun;
+using System.Runtime.InteropServices;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPun
 {
     public string playerName = "Player";
     public int score = 0;
+    private void Update()
+    {
+        if (!photonView.IsMine) return;
+
+
+    }
 
     // 트리거 충돌이 발생했을 때 호출되는 함수
     private void OnTriggerEnter(Collider other)
@@ -25,5 +33,10 @@ public class Player : MonoBehaviour
     {
         score += amount;
         Debug.Log($"{playerName} Score: {score}");
+    }
+    [PunRPC]
+    public void ApplyIntScore(int _score) 
+    {
+        score = _score;
     }
 }

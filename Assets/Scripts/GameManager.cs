@@ -101,9 +101,8 @@ public class GameManager : MonoBehaviour
                 Random.Range(-12, 12)
                 );
 
-            GameObject hGo = Instantiate(Trash, randomT, Quaternion.identity);
-
-            TrashList.Add(hGo);
+            GameObject TGo = Instantiate(Trash, randomT, Quaternion.identity);
+            TrashList.Add(TGo);
         }
 
     }

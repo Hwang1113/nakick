@@ -10,6 +10,7 @@ public class NK_UI_Cntdwn : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI TM_Pro = null;
+    private string sceneName = "B.Lobby";
     public const float maxCnt = 6f; // 카운트 다운 최대시간
     public float curCnt = 0f; //현재시간 담을 변수
     public string strCnt = null; // 카운트 문자열로 반환후 보내기 위한 빈 문자열
@@ -31,7 +32,10 @@ public class NK_UI_Cntdwn : MonoBehaviour
 
     private void Start()
     {
-        
+        if( curCnt == 0 ) // 생성되면 무조건 실행해야하는 함수라서 스타트에서 실행해봄
+        {
+            CountDownStart();
+        }
 
         
     }
@@ -81,9 +85,15 @@ public class NK_UI_Cntdwn : MonoBehaviour
             strCnt = ((int)curCnt).ToString(); // 문자열 cnt에 curCnt를 정수형으로 바꿔서 넣음 
             if(curCnt >= 1)
             TM_Pro.text = (strCnt);
-            if(curCnt <1)
+            if (curCnt < 1)
+            {
                 TM_Pro.text = "Start!";
-            Debug.Log("curCnt: "+ curCnt);
+                if (sceneName == SceneManager.GetActiveScene().name)
+                    SceneManager.LoadScene("C-1");
+            }
+            //Debug.Log("curCnt: "+ curCnt);
+
+
             yield return null;
         }
     }
