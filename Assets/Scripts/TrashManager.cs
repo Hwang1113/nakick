@@ -16,6 +16,8 @@ public class TrashManager : MonoBehaviour
 
     }
 
+
+
     private void Start()
     {
         CreateItem();
@@ -38,15 +40,4 @@ public class TrashManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-
-            }
-        }
-        
-    }
 }

@@ -20,27 +20,43 @@ public class NK_UI_Cntdwn : MonoBehaviour
         TM_Pro = transform.GetComponent<TextMeshProUGUI>();
         TM_Pro.enabled = false;
     }
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.R))    //디버깅용 업데이트 R키 누르면 시작 카운트 다운 
+    //    {
+    //        CountDownStart();
+    //    }       
+    //    if(Input.GetKeyDown(KeyCode.E))    //디버깅용 업데이트 R키 누르면 엔딩 카운트 다운 
+    //    {
+    //        CountDownEnd();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Z))    //디버깅용 업데이트 Z키 누르면 카운트 다운 일시정지
+    //    {
+    //        CountStop();
+    //    }       
+    //    if (Input.GetKeyDown(KeyCode.Q))    //디버깅용 업데이트 Q키 누르면 플레이 시간 30초 카운트 다운
+    //    {
+    //        Play30();
+    //    }
+    //}
+
+    /// ////////////////////////////////////////////////////////// <summary>
+    /// </summary>
+
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))    //디버깅용 업데이트 R키 누르면 시작 카운트 다운 
-        {
-            CountDownStart();
-        }       
-        if(Input.GetKeyDown(KeyCode.E))    //디버깅용 업데이트 R키 누르면 엔딩 카운트 다운 
-        {
-            CountDownEnd();
-        }
-        if (Input.GetKeyDown(KeyCode.Z))    //디버깅용 업데이트 Z키 누르면 카운트 다운 일시정지
-        {
-            CountStop();
-        }       
-        if (Input.GetKeyDown(KeyCode.Q))    //디버깅용 업데이트 Q키 누르면 플레이 시간 30초 카운트 다운
+        CountDownStart();
+        if (curCnt == 0f)
         {
             Play30();
+            if (curCnt == 0f)
+            {
+                CountDownEnd();
+                GameManager.instance.EndGame();
+            }
         }
     }
-
-    /// //////////////////////////////////////////////////////////
 
     public void CountDownStart()//5초 카운트 다운하는 퍼블릭 함수 (정확히는 실수 6에서델타타임을 뺀 정수 )5부터 ~ 1까지는 정수 숫자가 나오고 1~0은 Start!
     {
