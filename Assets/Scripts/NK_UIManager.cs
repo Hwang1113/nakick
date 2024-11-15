@@ -9,6 +9,8 @@ public class NK_UIManager : MonoBehaviour
     [SerializeField]
     private Button[] buttons = null;
     //리스트 순서 w,s,a,d,space
+    private int[] buttonNumber = [0, 1, 2, 3, 4];
+    
     [SerializeField]
     TextMeshProUGUI scoreTxt = null;
     //점수 텍스트, 문자열에 'Score:'를 포함해야함
@@ -18,14 +20,15 @@ public class NK_UIManager : MonoBehaviour
     TextMeshProUGUI countDown = null;
  
     private int score = 0;
-    public void KeyDownUI(KeyCode _Key)
-    {
+    //키보드를 누르면 UI 버튼을 눌렀다는걸 표시하기(미구현)
+    //public void KeyDownUI(KeyCode _Key) 
+    //{
+        
+    //}    
+    //public void KeyUpUI(KeyCode _Key)
+    //{
 
-    }    
-    public void KeyUpUI(KeyCode _Key)
-    {
-
-    }
+    //}
     public void ResetScoreUI() //점수0 으로 리셋 함수
     {
         scoreTxt.text = V;
