@@ -16,6 +16,8 @@ public class TrashManager : MonoBehaviour
 
     }
 
+
+
     private void Start()
     {
         CreateItem();

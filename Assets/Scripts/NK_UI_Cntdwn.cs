@@ -38,7 +38,23 @@ public class NK_UI_Cntdwn : MonoBehaviour
     //    }
     //}
 
-    /// //////////////////////////////////////////////////////////
+    /// ////////////////////////////////////////////////////////// <summary>
+    /// </summary>
+
+
+    private void Update()
+    {
+        CountDownStart();
+        if (curCnt == 0f)
+        {
+            Play30();
+            if (curCnt == 0f)
+            {
+                CountDownEnd();
+                GameManager.instance.EndGame();
+            }
+        }
+    }
 
     public void CountDownStart()//5초 카운트 다운하는 퍼블릭 함수 (정확히는 실수 6에서델타타임을 뺀 정수 )5부터 ~ 1까지는 정수 숫자가 나오고 1~0은 Start!
     {

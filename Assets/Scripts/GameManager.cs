@@ -8,8 +8,12 @@ using Unity.VisualScripting.Antlr3.Runtime.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
+
     [SerializeField]
-    private NK_UIManager UIMG = null;
+    private NK_UIManager UIMG;
+    private GameObject playtimer;
 
     public GameObject gameover;
     public Button lobby_BT;
@@ -20,11 +24,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> TrashList = null;
 
-    
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+
 
     private void Start()
     {
         CreateItem();
+
+        
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("C-1");
     }
 
     public void EndGame()
@@ -42,7 +61,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("B.Lobby");
     }
 
-    private void CreateItem()
+    public void CreateItem()
     {
         for (int i = 0; i < 30; ++i)
         {
