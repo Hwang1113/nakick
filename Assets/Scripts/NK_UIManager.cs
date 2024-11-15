@@ -9,7 +9,6 @@ public class NK_UIManager : MonoBehaviour
     [SerializeField]
     private Button[] buttons = null;
     //리스트 순서 w,s,a,d,space
-    private int[] buttonNumber = [0, 1, 2, 3, 4];
     
     [SerializeField]
     TextMeshProUGUI scoreTxt = null;
