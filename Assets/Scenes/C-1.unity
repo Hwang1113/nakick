@@ -592,10 +592,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f57975ae69bf5c41b10d79f5009f1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIMG: {fileID: 0}
+  NKUI: {fileID: 1510940556}
+  UIMG: {fileID: 1242718021}
   gameover: {fileID: 0}
   lobby_BT: {fileID: 0}
-  Trash: {fileID: 0}
+  cntDwns: []
+  Trash: {fileID: 3093163587352701934, guid: 6b6eb13854d163c469669b16ca78de45, type: 3}
   TrashList: []
 --- !u!4 &384562000
 Transform:
@@ -1744,6 +1746,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: efa7cf83928a3bd42935d7898c6fe1df, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1299942034}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: efa7cf83928a3bd42935d7898c6fe1df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1299942037}
   m_SourcePrefab: {fileID: 100100000, guid: efa7cf83928a3bd42935d7898c6fe1df, type: 3}
 --- !u!1 &1242718016
 GameObject:
@@ -2034,6 +2039,27 @@ MonoBehaviour:
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!65 &1299942037
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299942025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0.5, z: 0.5}
 --- !u!1 &1312290191
 GameObject:
   m_ObjectHideFlags: 0
