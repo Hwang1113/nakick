@@ -8,25 +8,19 @@ using Unity.VisualScripting.Antlr3.Runtime.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private NK_UIManager UIMG = null;
+
     public GameObject gameover;
     public Button lobby_BT;
 
-    public static GameManager instance;
 
     [SerializeField]
     private GameObject Trash = null;
     [SerializeField]
     private List<GameObject> TrashList = null;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-
-        TrashList = new List<GameObject>();
-    }
+    
 
     private void Start()
     {
