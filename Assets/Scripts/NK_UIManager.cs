@@ -12,7 +12,11 @@ public class NK_UIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI scoreTxt = null;
     //점수 텍스트, 문자열에 'Score:'를 포함해야함
-
+    [SerializeField]
+    TextMeshProUGUI playTimer = null;
+    [SerializeField]
+    TextMeshProUGUI countDown = null;
+ 
     private int score = 0;
     public void KeyDownUI(KeyCode _Key)
     {
