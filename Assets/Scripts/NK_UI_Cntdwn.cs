@@ -13,6 +13,8 @@ public class NK_UI_Cntdwn : MonoBehaviour
     public float playTime = 0;
     public const float maxPlayTime = 30f;
 
+
+
     private void Start()
     {
         TM_Pro = transform.GetComponent<TextMeshProUGUI>();
