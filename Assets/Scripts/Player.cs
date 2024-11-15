@@ -2,59 +2,28 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public string playerName = "Player";
+    public int score = 0;
 
-    public float speed;
-    float hAxis;
-    float vAxis;
-    bool gDown;
-
-
-    Vector3 moveVec;
-    Animator anim;
-
-    private void Awake()
+    // 트리거 충돌이 발생했을 때 호출되는 함수
+    private void OnTriggerEnter(Collider other)
     {
-        anim = GetComponentInChildren<Animator>();
+        // 충돌한 오브젝트가 "Trash" 태그를 가졌는지 확인
+        if (other.CompareTag("Trash"))
+        {
+            // Trash 오브젝트에서 PlayerClick 메서드를 호출하여 클릭을 전달
+            NK_Trash trash = other.GetComponent<NK_Trash>();
+            if (trash != null)
+            {
+                trash.PlayerTouch(this); // Player가 클릭을 전달
+            }
+        }
     }
 
-    private void Update()
+    // 플레이어의 스코어 증가
+    public void AddScore(int amount)
     {
-        Move();
-
-        //hAxis = Input.GetAxisRaw("Horizontal");
-        //vAxis = Input.GetAxisRaw("Vertical");
-        //gDown = Input.GetKeyDown(KeyCode.F);
-
-
-        //moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-
-        //transform.position += moveVec * speed * Time.deltaTime;
-
-        //anim.SetBool("isRun", moveVec != Vector3.zero);
-        //anim.SetBool("isGet", gDown);
-
-
-        //transform.LookAt(transform.position + moveVec);
-
-    }
-
-
-    private void Move()
-    {
-        hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
-        gDown = Input.GetKeyDown(KeyCode.F);
-
-
-        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-
-        transform.position += moveVec * speed * Time.deltaTime;
-
-        anim.SetBool("isRun", moveVec != Vector3.zero);
-        anim.SetBool("isGet", gDown);
-
-
-        transform.LookAt(transform.position + moveVec);
-
+        score += amount;
+        Debug.Log($"{playerName} Score: {score}");
     }
 }
