@@ -5,11 +5,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting.Antlr3.Runtime.Collections;
+using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    //public static GameManager instance;
 
+    private float PtimeCount;
+    private float StimeCount;
+
+    private bool isplaying = false;
+
+    public NK_UI_Cntdwn NKUI;
 
     [SerializeField]
     private NK_UIManager UIMG;
@@ -18,7 +25,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameover;
     public Button lobby_BT;
 
-
+    [SerializeField]
+    private NK_UI_Cntdwn[] cntDwns= null; 
+    //0.PlayTimer , 1.Cntdown
     [SerializeField]
     private GameObject Trash = null;
     [SerializeField]
@@ -26,10 +35,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //}
+
+        // NK_UI_Cntdwn.Instance.CountDownStart();
+
+        //kjjk.CountDownStart();
     }
 
 
@@ -37,9 +50,26 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CreateItem();
-
-        
+        NKUI.CountDownStart();
+        //cntDwns = UIMG.GetComponentsInChildren<NK_UI_Cntdwn>();
+        //PtimeCount = cntDwns[0].curCnt;
+        //StimeCount = cntDwns[1].curCnt;
     }
+
+    private void Update()
+    {
+
+        if (!isplaying && NKUI.curCnt < 0f)
+        {
+            NKUI.Play30();
+            isplaying = true;
+        }
+        if (isplaying && NKUI.curCnt < 0f)
+        {
+            NKUI.CountDownEnd();
+        }
+    }
+
 
     public void StartGame()
     {
@@ -48,16 +78,16 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        Time.timeScale = 0;
-        gameover.SetActive(true);
-        lobby_BT.gameObject.SetActive(true);
+       // Time.timeScale = 0;
+        //gameover.SetActive(true);
+       // lobby_BT.gameObject.SetActive(true);
         GoLobby();
     }
 
     public void GoLobby()
     {
-        Time.timeScale = 1;
-        gameObject.SetActive(false);
+       // Time.timeScale = 1;
+       // gameObject.SetActive(false);
         SceneManager.LoadScene("B.Lobby");
     }
 
