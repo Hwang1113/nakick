@@ -2,7 +2,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.Runtime.InteropServices;
 
-public class Player : MonoBehaviourPun
+public class NK_Player : MonoBehaviourPun
 {
     public string playerName = "Player";
     public int score = 0;

@@ -6,7 +6,7 @@ public class NK_Gamemanager : MonoBehaviour
     private GameObject NK_Trash = null;
     
     [SerializeField]
-    private Player[] players;
+    private NK_Player[] players;
 
     private void Start()
     {

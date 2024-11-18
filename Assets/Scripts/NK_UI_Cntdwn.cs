@@ -15,7 +15,7 @@ public class NK_UI_Cntdwn : MonoBehaviour
     public float curCnt = 0f; //현재시간 담을 변수
     public string strCnt = null; // 카운트 문자열로 반환후 보내기 위한 빈 문자열
     public float playTime = 0;
-    public const float maxPlayTime = 10f;
+    public const float maxPlayTime = 30f;
 
 
     private void Awake()

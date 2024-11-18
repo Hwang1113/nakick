@@ -18,12 +18,16 @@ public class NK_PlayerAnimation : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         playerCollider = GetComponent<BoxCollider>(); // Player의 BoxCollider를 찾기
     }
+    //11.18 --
+    //현재 발견된 버그 방향키누르면서 SPACE누르면 SPACE를 떼고 방향키를 계속 눌렀을때 계속 줍는 애니메이션 실행됌
+    //방향키를 누르고 떼고 SPACE를 누르고 떼면 줍는 모션이 작동안함
+    //SPACE누르고 가만히 있어도 앞으로 약간 전진함
 
     private void Update()
     {
         hAxis = Input.GetAxisRaw("Horizontal");
         vAxis = Input.GetAxisRaw("Vertical");
-        gDown = Input.GetKeyDown(KeyCode.Space);
+        gDown = Input.GetKeyDown(KeyCode.Space); //SPACE를 누르면 TRUE 한번 (나머지 시간동안 X) 
 
         // gDown이 true일 때만 BoxCollider를 활성화
         if (gDown)

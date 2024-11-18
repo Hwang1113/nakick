@@ -6,11 +6,11 @@ public class NK_Trash : MonoBehaviour
     private const int requiredtouchs = 3; // 총 필요 터치 횟수(hp)
     private bool isTouched = false; // 이미 터치해서 점수 부여를 받았는지 확인
 
-    public delegate void TrashTouchEvent(Player player);
+    public delegate void TrashTouchEvent(NK_Player player);
     public static event TrashTouchEvent OnTrashtouched; // 터치 이벤트
 
     // 플레이어가 클릭(터치)할 때마다 호출되는 메서드
-    public void PlayerTouch(Player player)
+    public void PlayerTouch(NK_Player player)
     {
         // 이미 점수를 부여받은 경우 더 이상 터치되지 않도록 처리
         if (isTouched) return;
@@ -48,7 +48,7 @@ public class NK_Trash : MonoBehaviour
     }
 
     // Trash 클릭 완료 후 처리 (스코어 증가 등)
-    private void HandleTrashTouched(Player player)
+    private void HandleTrashTouched(NK_Player player)
     {
         Debug.Log($"{player.name} has completed 3 clicks and earned a point!");
         player.AddScore(1); // 클릭을 완료한 플레이어에게 1점 추가

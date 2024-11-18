@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using System.Threading;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour
     private bool isplaying = false;
 
     public NK_UI_Cntdwn NKUI;
-
+    [SerializeField]
+    private TextMeshProUGUI scoreBoard = null;
     [SerializeField]
     private NK_UIManager UIMG;
     private GameObject playtimer;
@@ -106,4 +108,5 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
 }
